@@ -9,8 +9,13 @@ import ShareButton from '../../components/ShareButton';
 import {hp} from '../../theme/responsive';
 import {sms, lock} from '../../assets/icons';
 import {logo} from '../../assets/images';
+import useLogin from './useLogin';
 
 export default function Login({navigation}) {
+
+  const {errors,control}=useLogin(navigation);
+
+
   return (
     <View style={styles.container}>
       <SafeAreaView />
@@ -26,14 +31,25 @@ export default function Login({navigation}) {
           />
 
           <InputComponent
+            style={styles.email}
+            name={'email'}
+            errors={errors}
+            control={control}
             iconImg={sms}
             keyboard={'email-address'}
             placeholder={'Email Address'}
+
           />
           <InputComponent
+            style={styles.password}
+            name={'password'}
+            errors={errors}
+            control={control}
             iconImg={lock}
-            keyboard={'visible-password'}
             placeholder={'Password'}
+            isSecure={true}
+            // defaultValue={__DEV__ ? 'Test@123' : ''}
+
           />
 
           <TextComponent

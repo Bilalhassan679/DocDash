@@ -10,18 +10,20 @@ export const styles = StyleSheet.create({
   },
   centerMainView: {
     width: wp('100'),
-    alignItems: 'center',
     paddingHorizontal: wp('4'),
     marginTop: hp('2'),
   },
   logoStyle: {
     marginBottom: hp('5'),
+    alignSelf:'center'
   },
   textStyle: {
     fontSize: hp('2.5'),
     color: colors.secondary,
     fontFamily: fontFamily.semibold,
     marginBottom: hp('2'),
+    alignSelf:'center'
+
   },
   forgetStyle: {
     width: '100%',

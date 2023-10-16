@@ -5,4 +5,5 @@ export const colors = {
     black: 'black',     
     placeholderColor: 'rgba(41, 45, 50, 0.5)',
     textColor: 'rgba(17, 48, 95, 0.75)',
+    red: 'red',
 }

@@ -1,25 +1,84 @@
-import {View, Text, StyleSheet, TextInput, Image} from 'react-native';
-import React, {useState} from 'react';
-import {colors} from '../theme/color';
-import {fontSizes} from '../theme/font';
-import {hp, wp} from '../theme/responsive';
-import {Controller} from 'react-hook-form';
+import { View, Text, StyleSheet, TextInput, Image } from 'react-native';
+import React, { useState } from 'react';
+import { colors } from '../theme/color';
+import { FontSize } from '../theme/font';
+import { hp, wp } from '../theme/responsive';
+import { Controller } from 'react-hook-form';
+import { TextComponent } from './TextComponent';
 export default function InputComponent({
+  name,
+  errors,
+  control,
+  minLength,
   placeholder,
   style,
   keyboard,
   value,
   iconImg,
   secureTextEntry,
+  multiline,
+  numberOfLines,
+  isRequired,
+  defaultValue = '',
+  inputLength
+
 }) {
   return (
-    // <Controller>
-    <View style={styles.fieldSet}>
-      <Image style={styles.iconstyle} source={iconImg} resizeMode="cover" />
+      <Controller
+        {...{
+          name,
+          control,
+          defaultValue,
+        }}
+        render={({ field: { onChange, value } }) => (
+          (
+            <>
 
-      <TextInput placeholder={placeholder} style={styles.inputField} />
-    </View>
-    // </Controller>
+            <View style={styles.fieldSet}>
+              <Image style={styles.iconstyle} source={iconImg} resizeMode="cover" />
+              <TextInput
+                placeholderTextColor={colors.placeholderColor}
+                numberOfLines={numberOfLines}
+                multiline={multiline}
+                placeholder={placeholder}
+                style={styles.inputField}
+                onChangeText={onChange}
+                value={value}
+
+              />
+            </View>
+
+        
+        <View
+        style={{
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          alignItems:'center',
+          // width: Platform.OS == 'ios' ? width * 0.875 : Sizes.width * 0.9,
+          // width: Sizes.width * 0.9,
+        }}>
+        <View>
+          {errors[name]?.message && (
+            <Text style={[styles.error]}>{errors[name]?.message}</Text>
+          )}
+        </View>
+
+      {inputLength && (
+          <View style={{justifyContent: 'flex-end'}}>
+            <TextComponent
+              styles={{textAlign: 'right', color: colors.placeholderColor,fontSize:FontSize.scale14}}
+              text={`${value.length}/200`}
+            />
+          </View>
+        )}
+      </View>
+  </>
+  )
+  )}
+
+      />
+
+
   );
 }
 
@@ -38,9 +97,16 @@ const styles = StyleSheet.create({
   },
   inputField: {
     flex: 1,
-    fontSize: fontSizes.default,
+    fontSize: FontSize.scale18,
     color: colors.secondary,
     marginLeft: wp('2'),
     padding: 5,
   },
+  error: {
+    flex:1,
+    color: colors.red,
+    fontSize:FontSize.scale14,
+    marginBottom:hp('1')
+  }
 });
+

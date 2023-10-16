@@ -21,17 +21,17 @@ export default function Signup({navigation}) {
         <View style={styles.centerMainView}>
           <Image source={logo} resizeMode="contain" style={styles.logoStyle} />
           <TextComponent text={'Signup'} styles={styles.textStyle} />
-          <InputComponent
+          {/* <InputComponent
             iconImg={sms}
             keyboard={'default'}
             placeholder={'First Name'}
-          />
-          <InputComponent
+          /> */}
+          {/* <InputComponent
             iconImg={sms}
             keyboard={'default'}
             placeholder={'Last Name'}
-          />
-          <InputComponent
+          /> */}
+          {/* <InputComponent
             iconImg={sms}
             keyboard={'email-address'}
             placeholder={'Email Address'}
@@ -50,7 +50,7 @@ export default function Signup({navigation}) {
             iconImg={sms}
             keyboard={'default'}
             placeholder={'First Name'}
-          />
+          /> */}
           <ShareButton
             title={'Sign up'}
             style={{marginTop: hp('3')}}
