@@ -1,0 +1,8 @@
+export { default as app_bg } from '../images/app_bg.jpg'
+export { default as bottom_pattern } from '../images/bottom-pattern.png'
+export { default as logo } from '../images/logo.png'
+export { default as ls_in } from '../images/ls_in.png'
+export { default as onboard1 } from '../images/onboard1.png'
+export { default as onboard2 } from '../images/onboard2.png'
+export { default as splash } from '../images/splash.jpg'
+export { default as top_pattern } from '../images/top-pattern.png'
