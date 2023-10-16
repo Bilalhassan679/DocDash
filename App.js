@@ -1,5 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import {StyleSheet, ImageBackground, StatusBar} from 'react-native';
+import {
+  StyleSheet,
+  ImageBackground,
+  StatusBar,
+  SafeAreaView,
+} from 'react-native';
 
 import StackNavigatior from './src/navigation/navigation';
 const logoScreen = require('./src/assets/images/splash.jpg');
@@ -29,7 +34,7 @@ export default function App() {
 
   return (
     <>
-      {/* <StatusBar hidden={isVisible} /> */}
+      <StatusBar barStyle={'dark-content'} />
 
       {isVisible === true ? Splash_Screen : <StackNavigatior />}
     </>

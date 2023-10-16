@@ -28,34 +28,37 @@ export default function Onboarding({navigation}) {
         console.log('alsdkjfkladsjflkadjs', item);
       }
       return (
-        <View
-          key={index}
-          style={{
-            flex: 1,
-            width: Dimensions.get('window').width,
-            // flexDirection: 'row',
-            paddingBottom: 0,
-            position: 'relative',
-          }}>
-          <SafeAreaView />
-          <View style={styles.centerMainView}>
-            <TextComponent
-              numberOfLines={2}
-              text={item?.heading}
-              styles={styles.centerHeading}
-            />
-            <TextComponent
-              numberOfLines={2}
-              text={item?.text}
-              styles={styles.centerText}
-            />
-            <Image
-              style={styles.bannerImg}
-              resizeMode="contain"
-              source={item?.imageUrl}
-            />
+        <>
+          <View
+            key={index}
+            style={{
+              flex: 1,
+              width: Dimensions.get('window').width,
+              // flexDirection: 'row',
+              paddingBottom: 0,
+              position: 'relative',
+            }}>
+            <SafeAreaView />
+
+            <View style={styles.centerMainView}>
+              <TextComponent
+                numberOfLines={2}
+                text={item?.heading}
+                styles={styles.centerHeading}
+              />
+              <TextComponent
+                numberOfLines={2}
+                text={item?.text}
+                styles={styles.centerText}
+              />
+              <Image
+                style={styles.bannerImg}
+                resizeMode="contain"
+                source={item?.imageUrl}
+              />
+            </View>
           </View>
-        </View>
+        </>
       );
     },
     [currentIndex],

@@ -1,4 +1,4 @@
-import {View, Text, Image, ScrollView} from 'react-native';
+import {View, Text, Image, ScrollView, SafeAreaView} from 'react-native';
 import React from 'react';
 import {styles} from './style';
 import InputComponent from '../../components/InputComponent';
@@ -8,12 +8,14 @@ import {TextComponent} from '../../components/TextComponent';
 import ShareButton from '../../components/ShareButton';
 import {hp} from '../../theme/responsive';
 
-import { logo } from '../../assets/images';
-import { sms , line , apple , google , fb } from '../../assets/icons';
+import {logo} from '../../assets/images';
+import {sms, line, apple, google, fb} from '../../assets/icons';
 
 export default function Signup({navigation}) {
   return (
     <View style={styles.container}>
+      <SafeAreaView />
+
       <PatternBgTop />
       <ScrollView>
         <View style={styles.centerMainView}>
@@ -49,7 +51,13 @@ export default function Signup({navigation}) {
             keyboard={'default'}
             placeholder={'First Name'}
           />
-          <ShareButton title={'Sign up'} style={{marginTop: hp('3')}} onPress={() => { navigation.navigate('SignupAs')}}/>
+          <ShareButton
+            title={'Sign up'}
+            style={{marginTop: hp('3')}}
+            onPress={() => {
+              navigation.navigate('SignupAs');
+            }}
+          />
           <TextComponent text={'Or'} styles={styles.or} />
           <View style={styles.signUpWith}>
             <Image source={line} resizeMode="contain" />

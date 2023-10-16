@@ -1,19 +1,20 @@
-import {View, Text, Image, ScrollView} from 'react-native';
+import {View, Text, Image, ScrollView, SafeAreaView} from 'react-native';
 import React from 'react';
 import {styles} from './style';
 import {TextComponent} from '../../components/TextComponent';
 import PatternBgBottom from '../../components/PatternBgBottom';
 import PatternBgTop from '../../components/PatternBgTop';
 import ShareButton from '../../components/ShareButton';
-import { wp } from '../../theme/responsive';
+import {wp} from '../../theme/responsive';
 
-import { ls_in } from '../../assets/images';
-import { line ,apple , google , fb } from '../../assets/icons';
-
+import {ls_in} from '../../assets/images';
+import {line, apple, google, fb} from '../../assets/icons';
 
 export default function OnBoardLogin({navigation}) {
   return (
     <View style={styles.container}>
+      <SafeAreaView />
+
       <PatternBgTop />
       <ScrollView>
         <View style={styles.centerMainView}>
@@ -41,7 +42,9 @@ export default function OnBoardLogin({navigation}) {
             <TextComponent
               text={'Sign Up'}
               styles={styles.haveAccTextSignup}
-              onPress={() => {navigation.navigate('Signup')}}
+              onPress={() => {
+                navigation.navigate('Signup');
+              }}
             />
           </View>
           <View style={styles.signUpWith}>
