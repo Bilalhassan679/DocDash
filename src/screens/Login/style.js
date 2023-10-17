@@ -1,5 +1,5 @@
 import {StyleSheet, Dimensions} from 'react-native';
-import {fontFamily, fontSizes} from '../../theme/font';
+import {FontSize, fontFamily, fontSizes} from '../../theme/font';
 import {colors} from '../../theme/color';
 import {hp, wp} from '../../theme/responsive';
 
@@ -18,7 +18,7 @@ export const styles = StyleSheet.create({
     alignSelf:'center'
   },
   textStyle: {
-    fontSize: hp('2.5'),
+    fontSize: FontSize.scale24,
     color: colors.secondary,
     fontFamily: fontFamily.semibold,
     marginBottom: hp('2'),

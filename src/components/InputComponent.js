@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, TextInput, Image } from 'react-native';
+import { View, Text, StyleSheet, TextInput, Image, Touchable } from 'react-native';
 import React, { useState } from 'react';
 import { colors } from '../theme/color';
 import { FontSize } from '../theme/font';
@@ -20,7 +20,8 @@ export default function InputComponent({
   numberOfLines,
   isRequired,
   defaultValue = '',
-  inputLength
+  inputLength,
+  isSecure
 
 }) {
   return (
@@ -46,6 +47,17 @@ export default function InputComponent({
                 value={value}
 
               />
+                 {isSecure && (
+                <Touchable style={styles.eyeContainer} onPress={handleClick}>
+                  <Image
+                    source={show ? eye : eyeOff}
+                    style={{
+                      resizeMode: 'contain',
+                      tintColor: colors.placeholderColor,
+                    }}
+                  />
+                </Touchable>
+              )}
             </View>
 
         
@@ -54,6 +66,10 @@ export default function InputComponent({
           flexDirection: 'row',
           justifyContent: 'space-between',
           alignItems:'center',
+          marginHorizontal:wp('2.5'),
+    marginBottom:hp('2'),
+
+
           // width: Platform.OS == 'ios' ? width * 0.875 : Sizes.width * 0.9,
           // width: Sizes.width * 0.9,
         }}>
@@ -87,7 +103,7 @@ const styles = StyleSheet.create({
     width: wp('90'),
     height: hp('7'),
     flexDirection: 'row',
-    marginBottom: 15,
+    marginBottom: hp('1'),
     borderRadius: 10,
     backgroundColor: 'rgba(255, 255, 255, 0.5)',
     borderWidth: 1,
@@ -106,7 +122,6 @@ const styles = StyleSheet.create({
     flex:1,
     color: colors.red,
     fontSize:FontSize.scale14,
-    marginBottom:hp('1')
   }
 });
 
