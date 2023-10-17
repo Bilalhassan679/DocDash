@@ -47,7 +47,7 @@ export default function Login({navigation}) {
             control={control}
             iconImg={lock}
             placeholder={'Password'}
-            isSecure={true}
+            isSecure
             // defaultValue={__DEV__ ? 'Test@123' : ''}
 
           />

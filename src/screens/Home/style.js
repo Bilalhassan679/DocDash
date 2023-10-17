@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import { fontFamily, fontSizes } from '../../theme/font';
+import { FontSize, fontFamily, fontSizes } from '../../theme/font';
 import { colors } from '../../theme/color';
 
 export const styles = StyleSheet.create({
@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
   },
   text:{
     fontFamily: fontFamily.black,
-    fontSize: fontSizes.excepLarge,
+    fontSize: FontSize.scale32,
     color: colors.black
   }
   

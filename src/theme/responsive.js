@@ -3,4 +3,8 @@ import {
     heightPercentageToDP as hp,
   } from 'react-native-responsive-screen';
   
-  export {wp, hp};
+  const isIOS = Boolean(Platform.OS == 'ios');
+
+
+
+  export {wp, hp,isIOS};

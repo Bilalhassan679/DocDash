@@ -1,10 +1,11 @@
-import { View, Text, StyleSheet, TextInput, Image, Touchable } from 'react-native';
+import { View, Text, StyleSheet, TextInput, Image, Touchable, Pressable } from 'react-native';
 import React, { useState } from 'react';
 import { colors } from '../theme/color';
 import { FontSize } from '../theme/font';
 import { hp, wp } from '../theme/responsive';
 import { Controller } from 'react-hook-form';
 import { TextComponent } from './TextComponent';
+import {eye, eyeOff} from '../assets/icons';
 export default function InputComponent({
   name,
   errors,
@@ -24,6 +25,7 @@ export default function InputComponent({
   isSecure
 
 }) {
+  const [show, setShow] = useState(!isSecure);
   return (
       <Controller
         {...{
@@ -45,10 +47,11 @@ export default function InputComponent({
                 style={styles.inputField}
                 onChangeText={onChange}
                 value={value}
+                secureTextEntry= {!show}
 
               />
                  {isSecure && (
-                <Touchable style={styles.eyeContainer} onPress={handleClick}>
+                <Pressable style={styles.eyeContainer} onPress={()=>setShow(prev=>!prev)}>
                   <Image
                     source={show ? eye : eyeOff}
                     style={{
@@ -56,7 +59,7 @@ export default function InputComponent({
                       tintColor: colors.placeholderColor,
                     }}
                   />
-                </Touchable>
+                </Pressable>
               )}
             </View>
 

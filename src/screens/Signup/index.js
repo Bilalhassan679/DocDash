@@ -9,9 +9,12 @@ import ShareButton from '../../components/ShareButton';
 import {hp} from '../../theme/responsive';
 
 import {logo} from '../../assets/images';
-import {sms, line, apple, google, fb} from '../../assets/icons';
+import {sms,user,lock,line,fb,google,apple} from '../../assets/icons';
+import useSignup from './useSignup';
 
 export default function Signup({navigation}) {
+  const {errors,control}=useSignup(navigation);
+
   return (
     <View style={styles.container}>
       <SafeAreaView />
@@ -21,6 +24,53 @@ export default function Signup({navigation}) {
         <View style={styles.centerMainView}>
           <Image source={logo} resizeMode="contain" style={styles.logoStyle} />
           <TextComponent text={'Signup'} styles={styles.textStyle} />
+          <InputComponent
+            name={'firstName'}
+            errors={errors}
+            control={control}
+            iconImg={user}
+            keyboard={'email-address'}
+            placeholder={'First Name'}
+
+          />
+          <InputComponent
+            name={'lastName'}
+            errors={errors}
+            control={control}
+            iconImg={user}
+            keyboard={'email-address'}
+            placeholder={'Last Name'}
+
+          />
+          <InputComponent
+            name={'email'}
+            errors={errors}
+            control={control}
+            iconImg={sms}
+            keyboard={'email-address'}
+            placeholder={'Email Address'}
+
+          />
+          <InputComponent
+            name={'password'}
+            errors={errors}
+            control={control}
+            iconImg={lock}
+            keyboard={'email-address'}
+            placeholder={'Password'}
+            secureTextEntry
+            isSecure
+          />
+          <InputComponent
+            name={'confirmPassword'}
+            errors={errors}
+            control={control}
+            iconImg={lock}
+            keyboard={'email-address'}
+            placeholder={'Confirm Password'}
+            secureTextEntry
+            isSecure
+          />
           {/* <InputComponent
             iconImg={sms}
             keyboard={'default'}
