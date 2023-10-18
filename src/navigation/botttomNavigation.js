@@ -13,6 +13,7 @@ import {
   setting,
   setting2,
 } from '../assets/images';
+import {chat,chatActive,profile,profileActive,homeA,homeActive,notificationA,notificationActive,settingA ,settingActive} from '../assets/icons'
 import { hp, wp } from '../theme/responsive';
 import { colors } from '../theme/color';
 
@@ -22,11 +23,11 @@ const tabarComponent = (activeImage, unActiveImage, ImageStyle) => {
   return {
     tabBarIcon: ({focused}) => (
       <View style={{...styles.tabarView(focused),}}>
-        {/* <Image
+        <Image
           style={{...styles.imgstyle, ...ImageStyle}}
           source={focused ? activeImage : unActiveImage}
-        /> */}
-      {focused  ? <Text style={{color:'black'}}>select</Text>:<Text style={{color:'black'}}>unselect</Text>}
+        />
+      {/* {focused  ? <Text style={{color:'black'}}>select</Text>:<Text style={{color:'black'}}>unselect</Text>} */}
       </View>
     ),
     title: '',
@@ -58,8 +59,8 @@ function MybottomTabs() {
           width: 'auto',
         },
         tabBarStyle: {
-          height: isIOS ? hp('10') : hp('8'),
-          // height: hp('8'),
+          // height: isIOS ? hp('5') : hp('2'),
+          height: hp('5'),
           borderTopWidth: 0,
           width: wp('100'),
           alignSelf: 'center',
@@ -67,42 +68,50 @@ function MybottomTabs() {
           borderWidth: 0,
           elevation: 0,
           shadowOpacity: 0,
-          borderTopRightRadius: 20,
-          borderTopLeftRadius: 10,
+          // borderTopRightRadius: 20,
+          // borderTopLeftRadius: 10,
           // overflow: 'hidden',
         },
       })}>
       <Tab.Screen
         name="HomeScreen"
-        options={tabarComponent(home2, home)}
+        options={tabarComponent(homeActive, homeA)}
         component={Screens.Home}
       />
       <Tab.Screen
         name="EditTripScreen"
-        options={tabarComponent(map2, map)}
+        options={tabarComponent(notificationActive, notificationA,   (ImageStyle = {
+          // width: wp('24'),
+          marginTop: hp('-1'),
+          // height: hp('12'),
+        }),)}
         component={Screens.Home}
       />
       <Tab.Screen
         name="SomeComponent"
         options={tabarComponent(
-          sendNotification,
-          sendNotification,
+          chatActive,
+          chat,
           (ImageStyle = {
-            width: wp('24'),
-            marginTop: hp('-5'),
-            height: hp('12'),
+            // width: wp('24'),
+            marginTop: hp('-1'),
+            // height: hp('12'),
           }),
         )}
         component={Screens.Home}
       />
       <Tab.Screen
         name="ChatScreen"
-        options={tabarComponent(notification2, notification)}
+        options={tabarComponent(settingActive, settingA,   (ImageStyle = {
+          // width: wp('24'),
+          marginTop: hp('-1'),
+          // height: hp('12'),
+        }),)}
         component={Screens.Home}
       />
       <Tab.Screen
         name="AccountScreen"
-        options={tabarComponent(setting2, setting)}
+        options={tabarComponent(profileActive, profile)}
         component={Screens.Home}
       /> 
  
@@ -128,7 +137,11 @@ const styles = StyleSheet.create({
   }),
 
   imgstyle: {
-    resizeMode: 'contain',
-    width: wp('7'),
+    resizeMode:'contain',
+    // aspectRatio:1,
+    width:wp('21'),
+    // resizeMode: 'contain',
+    height: hp('15'),
+
   },
 });

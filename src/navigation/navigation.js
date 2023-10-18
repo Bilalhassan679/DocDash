@@ -14,8 +14,8 @@ export default function StackNavigatior() {
           headerTitle: null,
           headerShown: false,
         }}>
-        <Stack.Screen name="Signup" component={Screens.Signup} />
         <Stack.Screen name="MybottomTabs" component={MybottomTabs} />
+        <Stack.Screen name="Signup" component={Screens.Signup} />
         <Stack.Screen name="Home" component={Screens.Home} />
         <Stack.Screen name="Onboarding" component={Screens.Onboarding} />
         <Stack.Screen name="OnBoardLogin" component={Screens.OnBoardLogin} />
