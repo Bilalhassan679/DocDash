@@ -5,7 +5,7 @@ import {
   StatusBar,
   SafeAreaView,
 } from 'react-native';
-
+import messaging from '@react-native-firebase/messaging';
 import StackNavigatior from './src/navigation/navigation';
 const logoScreen = require('./src/assets/images/splash.jpg');
 
@@ -17,14 +17,32 @@ export default function App() {
 
   // const {isloading} = getState('isloading');
   const time = () => {
-    return 5000;
+    return 2000;
   };
 
+  //Get Token for firebase
+  const getTokenFunction = async()=>{
+    const authStatus = await messaging().requestPermission();
+  const enabled =
+    authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
+    authStatus === messaging.AuthorizationStatus.PROVISIONAL;
+
+  if (enabled) {
+    const authToken = await messaging().getToken();
+    console.log('Authorization status:', authStatus);
+    console.log({authToken})
+  }
+
+  }
+
+
   useEffect(() => {
+    getTokenFunction()
     setTimeout(function () {
       Hide_Splash_Screen();
     }, time());
   }, []);
+  
   let Splash_Screen = (
     <ImageBackground
       source={logoScreen}

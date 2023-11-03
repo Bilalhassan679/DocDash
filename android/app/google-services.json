@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "526029613249",
+    "project_id": "docdash-fbb55",
+    "storage_bucket": "docdash-fbb55.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:526029613249:android:e2ee66a3302b76c227cc40",
+        "android_client_info": {
+          "package_name": "com.docdash"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAAUKxmE8tKePWCOYrnN4mMrvZ4jW8o7gs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
